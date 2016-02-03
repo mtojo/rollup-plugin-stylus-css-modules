@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+const rollup = require('rollup').rollup;
+const babel = require('rollup-plugin-babel');
+
+rollup({
+  entry: 'index.js',
+  external: [
+    'babel-runtime/core-js/json/stringify',
+    'babel-runtime/helpers/asyncToGenerator',
+    'babel-runtime/regenerator',
+    'css-modules-loader-core',
+    'fs',
+    'path',
+    'rollup-pluginutils',
+    'stylus'
+  ],
+  plugins: [
+    babel({
+      runtimeHelpers: true
+    })
+  ]
+}).then((bundle) => {
+  bundle.write({
+    dest: 'dist/rollup-plugin-stylus-css-modules.cjs.js',
+    format: 'cjs'
+  });
+  bundle.write({
+    dest: 'dist/rollup-plugin-stylus-css-modules.es6.js',
+    format: 'es6'
+  });
+}).catch(console.error);

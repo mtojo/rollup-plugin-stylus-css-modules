@@ -1,0 +1,46 @@
+{
+  "name": "rollup-plugin-stylus-css-modules",
+  "version": "1.0.1",
+  "description": "A Rollup.js plugin to compile Stylus and inject CSS Modules",
+  "main": "dist/rollup-plugin-stylus-css-modules.cjs.js",
+  "jsnext:main": "dist/rollup-plugin-stylus-css-modules.es6.js",
+  "scripts": {
+    "build": "./script/build",
+    "prepublish": "npm run build",
+    "pretest": "npm run build",
+    "test": "mocha"
+  },
+  "keywords": [
+    "css",
+    "css-modules",
+    "rollup-plugin"
+  ],
+  "author": "Masaki Tojo",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mtojo/rollup-plugin-stylus-css-modules.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mtojo/rollup-plugin-stylus-css-modules/issues"
+  },
+  "homepage": "https://github.com/mtojo/rollup-plugin-stylus-css-modules",
+  "files": [
+    "dist/"
+  ],
+  "devDependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.4.6",
+    "babel-plugin-transform-es2015-parameters": "^6.4.5",
+    "babel-plugin-transform-runtime": "^6.4.3",
+    "babel-preset-es2015-rollup": "^1.1.1",
+    "babel-runtime": "^6.3.19",
+    "mocha": "^2.4.5",
+    "rollup": "^0.25.2",
+    "rollup-plugin-babel": "^2.3.9"
+  },
+  "dependencies": {
+    "css-modules-loader-core": "^1.0.0",
+    "rollup-pluginutils": "^1.3.1",
+    "stylus": "^0.53.0"
+  }
+}
