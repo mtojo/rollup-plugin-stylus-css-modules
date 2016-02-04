@@ -43,7 +43,30 @@ const container = `<div class="${styles.container}">...</div>`;
 
 ## Options
 
-* `output`: Path to write the generated CSS (optional).
+* `include`, `exclude`: A minimatch pattern, or an array of minimatch patterns of including ID, or excluding ID (optional).
+* `output`: Output destination (optional).
+  * If you specify a `string`, it will be the path to write the generated CSS.
+  * If you specify a `function`, call it passing the generated CSS as an argument.
+* `sourceMap`: If `true` is specified, source map to be embedded in the output CSS (default is `true`).
+
+## External tools
+
+Combination with external tools, such as [PostCSS](http://postcss.org/) works perfectly.
+
+```js
+stylusCssModules({
+  sourceMap: true,
+  output: (css) => {
+    return postcss([
+      // postcss' plugins...
+    ]).process(css, {
+      map: true
+    }).then((result) => {
+      fs.writeFileSync('styles.css', result.css);
+    });
+  }
+});
+```
 
 ## License
 
