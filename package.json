@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-stylus-css-modules",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Rollup.js plugin to compile Stylus and inject CSS Modules",
   "main": "dist/rollup-plugin-stylus-css-modules.cjs.js",
   "jsnext:main": "dist/rollup-plugin-stylus-css-modules.es6.js",
