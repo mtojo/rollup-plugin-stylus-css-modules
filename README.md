@@ -48,6 +48,7 @@ const container = `<div class="${styles.container}">...</div>`;
   * If you specify a `string`, it will be the path to write the generated CSS.
   * If you specify a `function`, call it passing the generated CSS as an argument.
 * `sourceMap`: If `true` is specified, source map to be embedded in the output CSS (default is `true`).
+* `fn`: A function invoked with the Stylus renderer (it will be passed to `use()` function of the Stylus).
 
 ## External tools
 

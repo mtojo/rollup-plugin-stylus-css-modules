@@ -7,6 +7,7 @@ import {createFilter} from 'rollup-pluginutils';
 export default function stylusCssModules(options = {}) {
   const cssModules = new CssModules();
   const filter = createFilter(options.include, options.exclude);
+  const fn = options.fn;
   const sourceMap = options.sourceMap !== false;
   const outputFile = typeof options.output === 'string';
   const outputFunction = typeof options.output === 'function';
@@ -20,9 +21,13 @@ export default function stylusCssModules(options = {}) {
       const relativePath = path.relative(process.cwd(), id);
 
       // compile Stylus
-      const style = stylus(code).set('filename', relativePath);
+      const style = stylus(code);
+      style.set('filename', relativePath);
       if (sourceMap) {
         style.set('sourcemap', {inline: true});
+      }
+      if (fn) {
+        style.use(fn);
       }
       const css = await style.render();
 
