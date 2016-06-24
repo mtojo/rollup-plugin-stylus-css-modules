@@ -26,7 +26,7 @@ rollup({
     format: 'cjs'
   });
   bundle.write({
-    dest: 'dist/rollup-plugin-stylus-css-modules.es6.js',
-    format: 'es6'
+    dest: 'dist/rollup-plugin-stylus-css-modules.es.js',
+    format: 'es'
   });
 }).catch(console.error);
