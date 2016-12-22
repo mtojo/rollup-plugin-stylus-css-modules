@@ -25,7 +25,7 @@
     "dist/"
   ],
   "homepage": "https://github.com/mtojo/rollup-plugin-stylus-css-modules",
-  "jsnext:main": "dist/rollup-plugin-stylus-css-modules.es6.js",
+  "jsnext:main": "dist/rollup-plugin-stylus-css-modules.es.js",
   "keywords": [
     "css",
     "css-modules",
