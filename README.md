@@ -7,7 +7,7 @@ A Rollup.js plugin to compile Stylus and inject [CSS Modules](https://github.com
 ## Installation
 
 ```bash
-npm install --save-dev rollup-plugin-stylus-css-modules
+$ npm install --save-dev rollup-plugin-stylus-css-modules
 ```
 
 ## Usage
@@ -47,10 +47,11 @@ const container = `<div class="${styles.container}">...</div>`;
 * `output`: Output destination (optional).
   * If you specify a `string`, it will be the path to write the generated CSS.
   * If you specify a `function`, call it passing the generated CSS as an argument.
+  * If this option is not specified, the generated CSS will still be imported (See [Use with other CSS plugins](#use-with-other-css-plugins)).
 * `sourceMap`: If `true` is specified, source map to be embedded in the output CSS (default is `true`).
 * `fn`: A function invoked with the Stylus renderer (it will be passed to `use()` function of the Stylus).
 
-## External tools
+## Use with external tools
 
 Combination with external tools, such as [PostCSS](http://postcss.org/) works perfectly.
 
@@ -67,6 +68,20 @@ stylusCssModules({
     });
   }
 });
+```
+
+## Use with other CSS plugins
+
+You can also use the Rollup.js plugin, such as [rollup-plugin-postcss](https://github.com/egoist/rollup-plugin-postcss), [rollup-plugin-css-only](https://github.com/thgh/rollup-plugin-css-only), etc.
+
+```js
+export default {
+  entry: 'index.js',
+  plugins: [
+    stylusCssModules(),
+    postcss()
+  ]
+};
 ```
 
 ## License
