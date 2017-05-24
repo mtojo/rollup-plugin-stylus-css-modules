@@ -47,6 +47,22 @@ describe('stylus-css-modules', () => {
     });
   });
 
+  it('should not output CSS', () => {
+    return rollup({
+      entry: 'test/example/main.js',
+      plugins: [
+        stylusCssModules({
+          output: false
+        })
+      ]
+    }).then((bundle) => {
+      const result = bundle.generate({format: 'cjs'});
+      const exports = {};
+      const module = {exports};
+      runInNewContext(result.code, {module, exports});
+    });
+  });
+
   it('should be work the next css plugin', () => {
     const filter = createFilter('**/*.css');
     let output = null;

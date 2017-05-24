@@ -14,6 +14,7 @@ export default function stylusCssModules(options = {}) {
   const sourceMap = options.sourceMap !== false;
   const outputFile = typeof options.output === 'string';
   const outputFunction = typeof options.output === 'function';
+  const noOutput = options.output === false;
   const cache = {};
 
   return {
@@ -63,7 +64,7 @@ export default function stylusCssModules(options = {}) {
         await fs.writeFile(options.output, obj.injectableSource);
       } else if (outputFunction) {
         await options.output(obj.injectableSource);
-      } else {
+      } else if (!noOutput) {
         importCode = `import ${JSON.stringify(compiledId)};`;
       }
 
