@@ -45,8 +45,9 @@ const container = `<div class="${styles.container}">...</div>`;
 
 * `include`, `exclude`: A minimatch pattern, or an array of minimatch patterns of including ID, or excluding ID (optional).
 * `output`: Output destination (optional).
-  * If you specify a `string`, it will be the path to write the generated CSS.
-  * If you specify a `function`, call it passing the generated CSS as an argument.
+  * If you specify as `string`, it will be the path to write the generated CSS.
+  * If you specify as `function`, call it passing the generated CSS as an argument.
+  * If you specify the `false`, CSS will not be output.
   * If this option is not specified, the generated CSS will still be imported (See [Use with other CSS plugins](#use-with-other-css-plugins)).
 * `sourceMap`: If `true` is specified, source map to be embedded in the output CSS (default is `true`).
 * `fn`: A function invoked with the Stylus renderer (it will be passed to `use()` function of the Stylus).
