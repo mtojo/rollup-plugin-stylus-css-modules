@@ -16,11 +16,10 @@ describe('stylus-css-modules', () => {
           output: 'test/example/styles.css'
         })
       ]
-    }).then((bundle) => {
-      const result = bundle.generate({format: 'cjs'});
+    }).then((bundle) => bundle.generate({format: 'cjs'})).then(({code}) => {
       const exports = {};
       const module = {exports};
-      runInNewContext(result.code, {module, exports});
+      runInNewContext(code, {module, exports});
       assert(module.exports.styles.hasOwnProperty('container'));
       assert(fs.existsSync('test/example/styles.css'));
       fs.unlinkSync('test/example/styles.css');
@@ -38,11 +37,10 @@ describe('stylus-css-modules', () => {
           }
         })
       ]
-    }).then((bundle) => {
-      const result = bundle.generate({format: 'cjs'});
+    }).then((bundle) => bundle.generate({format: 'cjs'})).then(({code}) => {
       const exports = {};
       const module = {exports};
-      runInNewContext(result.code, {module, exports});
+      runInNewContext(code, {module, exports});
       assert(output !== null);
     });
   });
@@ -55,11 +53,10 @@ describe('stylus-css-modules', () => {
           output: false
         })
       ]
-    }).then((bundle) => {
-      const result = bundle.generate({format: 'cjs'});
+    }).then((bundle) => bundle.generate({format: 'cjs'})).then(({code}) => {
       const exports = {};
       const module = {exports};
-      runInNewContext(result.code, {module, exports});
+      runInNewContext(code, {module, exports});
     });
   });
 
@@ -80,11 +77,10 @@ describe('stylus-css-modules', () => {
           }
         }
       ]
-    }).then((bundle) => {
-      const result = bundle.generate({format: 'cjs'});
+    }).then((bundle) => bundle.generate({format: 'cjs'})).then(({code}) => {
       const exports = {};
       const module = {exports};
-      runInNewContext(result.code, {module, exports});
+      runInNewContext(code, {module, exports});
       assert(output !== null);
     });
   });
